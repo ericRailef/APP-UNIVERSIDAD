@@ -83,3 +83,37 @@ print("Tabla: 'matricula' creada correctamente")
 # ================================================
 
 conexion.commit()
+
+
+# ==================================================
+#             INSTANCIAR LOS OBJETOS
+# ===================================================
+
+#Alumnos
+alumno_uno = Alumno(None, "Roberto Carlos", "robcharly@gmail.com", 50)
+
+alumno_dos = Alumno(None, "Josimar ", "vozinha@gmail.com", 40)
+
+#Curso
+curso_uno = Curso(None, "Programacion Backend", 72)
+
+#Matricula
+
+matricula_uno = Matricula(None, 1, 1, "16-09-2026")
+
+# =========================================================
+#             INSERT A BD 
+# ==========================================================
+
+cursor.execute("""
+    INSERT INTO alumno(nombre, email, edad)
+    VALUES (?, ?, ?)       
+               
+        """, (
+            alumno_uno.nombre,
+            alumno_uno.email,
+            alumno_uno.edad
+        ))
+
+
+conexion.commit()
